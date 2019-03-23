@@ -1,0 +1,104 @@
+一、页面架构：index.html，引用jquery和css、js文件
+
+二、样式：2048.css，颜色、字体、间距、绝对定位、hover、圆角
+
+
+三、main2048.js:游戏主逻辑
+  support2048.js:底层支撑逻辑
+  showanimation2048.js:动画效果
+
+
+
+  1.页面初始化和newgame按钮    调用初始化函数：newgame(),包含  初始化盘格(16个)  和  新增初始随机数字(2或者4)
+
+
+
+  	初始化盘格(16个)：新建16个格并绝对定位好，初始化二维数组board值是0，根据board的值写一个规范数值显示的函数（数值为0和不为0怎么显示、颜色）
+
+
+  	两个初始随机数字(2或者4)：随机位子xy（board值是0）和随机2或4   增加显示的动画效果 //巧妙使用Math.random()
+
+
+
+  2.设置键盘上下左右的动作逻辑
+
+
+
+  	判断能否移动（不能移动就gameover）------可移动两种情况---------移动过程添加动画---------移动结果--------调用规范数值显示函数
+  	//上下左右的循环根据方向的不一样for加减方向也不一样
+
+
+  3.增加分数统计，每次有数相加就加分
+
+
+  4.问题：一次移动同一个可能加几次
+  	初始化一个布尔值参数记录一个格子在一次移动中是否发生了碰撞  hasConflicted[i][j]=true;
+
+  	二维数组   规范数值显示时所有碰撞清零为无碰撞    数值一样且该值为false才碰撞   碰撞后改值为true
+
+
+ 5.随机位子优化 随机位子xy可能需要很多次随机，让电脑只随机50次然后人工帮它找一个board值为0的一个空
+
+
+
+
+ 随机数的产生     分数增加的动画    game over的动画     私人定制 2 4 8 16 32 64
+
+
+
+
+
+ 6.移动端    前端显示适应手机屏幕      交互方式变为触控方式
+
+
+
+ viewport元信息(放在html)
+ <meta name="viewport"
+ 	content= "
+ 		width=[pixel_value|device-width],//device设备屏幕的值
+ 		height=[pixel_value|device-width],
+ 		initial-scale=float_value,//应用程序启动时缩放尺度的浮点值  1.0
+ 		minimum-scale=float_value,//应用程序可缩小的最小尺寸   1.0
+ 		maxmum-scale=float_value,//   1.0
+ 		user-scalable=[yes|no]//用户可否用手势缩放页面  yes
+ 	"
+ 	/>
+
+
+ 	css里绝对大小改成相对
+ 	js里获取当前屏幕宽度并根据此值更改其他绝对尺寸为相对尺寸
+
+ 	适应手机屏幕后，用一个判断来设置适配大屏的固定尺寸
+
+
+
+
+ 	触控方式：两个事件和坐标  
+ 							  触摸touchstart      离开touchend
+ 							  坐标(startx,starty) 坐标(endx,endy)
+							  event.touches       event.changeTouches
+ 				  startx=event.touches[0].pageX     endx=event.changedTouches[0].pageX
+ 				  starty=event.touches[0].pageY	  endy=event.changedTouches[0].pagey
+ 			  
+
+ 			  触控逻辑：上下左右（用坐标）
+
+ 			  优化：1.取消只点击不滑动的动作和初始化出现3个数
+ 				
+ 					2.网页版放大后上下按键会影响
+
+
+
+ 	Web Applications:运行在服务器  通过浏览器执行  使用前端技术HTML、CSS、Javascr  跨平台
+
+ 	Native Applications:通过store下载  直接运行在移动设备上  使用技术Objective-C、Java 用户交互体验良好
+
+ 	Hybrid Apps：混合两种模式
+
+ 	PhoneGap：将Web App转变成Native App
+
+
+
+
+ 	使用Dropbox发布自己的Web Apps（免费）   限制：静态网站、速度稍慢、域名不宜记忆
+ 	不能用就用 DropPages.com

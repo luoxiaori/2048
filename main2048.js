@@ -216,7 +216,7 @@ document.addEventListener('touchend',function(event){
  	var deltax=endx-startx;
  	var deltay=endy-starty;
 
- 	if(Math.abs(deltax)<0.3*documentWidth && Math.abs(deltay)<0.3*documentWidth){
+ 	if(Math.abs(deltax)<0.05*documentWidth && Math.abs(deltay)<0.05*documentWidth){
  		return;//不进行后面
  	}
  	// console.log(deltax,deltay,starty,startx,endy,endx)

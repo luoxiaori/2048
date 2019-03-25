@@ -264,7 +264,7 @@ function isgameover(){
 
 
 function gameover(){
-	alert('gameover');
+	alert('click "help!!!" to survive');
 }
 
 

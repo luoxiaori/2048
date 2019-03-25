@@ -436,3 +436,40 @@ function moveDown(){
 	setTimeout("updateBoardView()",200);//对board更改后进行样式刷新
 	return true;
 }
+
+function help(){
+	// if(nospace(board)){
+	// 	return false;//格子满了
+	// }
+	//随机一个位
+	var randx=parseInt(Math.floor(Math.random()*4));//floor出来的还是浮点型
+	var randy=parseInt(Math.floor(Math.random()*4));
+	// console.log(randx,randy);
+
+	var times=0;
+	while (times<50){
+		if(board[randx][randy]==0){
+			break;
+		}
+		 randx=parseInt(Math.floor(Math.random()*4));
+		 randy=parseInt(Math.floor(Math.random()*4));
+
+		 times ++;
+	}
+	if(times==50){
+		for(var i=0;i<4;i++){
+			for(var j=0;j<4;j++){
+				if(board[i][j]==0){
+					randx=i;
+					randy=j;
+				}
+			}
+		}
+	}
+
+	board[randx][randy]=0;
+	setTimeout("updateBoardView()",200);
+
+	return true;
+
+}

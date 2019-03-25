@@ -1,4 +1,4 @@
-header{
+header,#helpbutton{
 	display: block;
 	margin:0 auto;
 	/*width:500px;*/
@@ -13,7 +13,7 @@ header h1{
 	font-weight: bold;
 }
 
-header #newgamebutton{
+header #newgamebutton,#helpbutton{
 	display:block;
 	margin:20px auto;
 
@@ -29,7 +29,7 @@ header #newgamebutton{
 	text-decoration: none;/*去掉下划线*/
 }
 
-header #newgamebutton:hover{
+header #newgamebutton,#helpbutton:hover{
 	background-color: #9f8b77;
 }
 

@@ -112,6 +112,16 @@ function updateBoardView(){
 	//手机	
 	$('.number-cell').css('line-height',cellSideLength+'px');
 	$('.number-cell').css('font-size',0.6*cellSideLength+'px');
+	
+	for(var i=0;i<4;i++){
+		for(var j=0;j<4;j++){
+			if(board[i][j]>=1024){
+				$('.number-cell').css('line-height',cellSideLength+'px');
+				$('.number-cell').css('font-size',0.3*cellSideLength+'px');
+			}
+		}
+	}
+
 }
 
 
@@ -436,40 +446,86 @@ function moveDown(){
 	setTimeout("updateBoardView()",200);//对board更改后进行样式刷新
 	return true;
 }
+//help1.1
+// function help(){
+// 	// if(nospace(board)){
+// 	// 	return false;//格子满了
+// 	// }
+// 	//随机一个位
+// 	var randx=parseInt(Math.floor(Math.random()*4));//floor出来的还是浮点型
+// 	var randy=parseInt(Math.floor(Math.random()*4));
+// 	// console.log(randx,randy);
 
+// 	var times=0;
+// 	while (times<50){
+// 		if(board[randx][randy]==0){
+// 			break;
+// 		}
+// 		 randx=parseInt(Math.floor(Math.random()*4));
+// 		 randy=parseInt(Math.floor(Math.random()*4));
+
+// 		 times ++;
+// 	}
+// 	if(times==50){
+// 		for(var i=0;i<4;i++){
+// 			for(var j=0;j<4;j++){
+// 				if(board[i][j]==0){
+// 					randx=i;
+// 					randy=j;
+// 				}
+// 			}
+// 		}
+// 	}
+
+// 	board[randx][randy]=0;
+// 	setTimeout("updateBoardView()",200);
+
+// 	return true;
+
+// }
+
+//help1.2
 function help(){
-	// if(nospace(board)){
-	// 	return false;//格子满了
-	// }
-	//随机一个位
-	var randx=parseInt(Math.floor(Math.random()*4));//floor出来的还是浮点型
-	var randy=parseInt(Math.floor(Math.random()*4));
-	// console.log(randx,randy);
-
-	var times=0;
-	while (times<50){
-		if(board[randx][randy]==0){
-			break;
-		}
-		 randx=parseInt(Math.floor(Math.random()*4));
-		 randy=parseInt(Math.floor(Math.random()*4));
-
-		 times ++;
-	}
-	if(times==50){
-		for(var i=0;i<4;i++){
-			for(var j=0;j<4;j++){
-				if(board[i][j]==0){
-					randx=i;
-					randy=j;
-				}
+	if(!nospace(board)){
+		alert('还有空位，别偷懒啊老弟！！！');//格子没满
+	}else{
+		//随机一个位
+		var randx=parseInt(Math.floor(Math.random()*4));//floor出来的还是浮点型
+		var randy=parseInt(Math.floor(Math.random()*4));
+		// console.log(randx,randy);
+		// var times=0;
+		while (true){
+		// while (true){
+			if(board[randx][randy]<maximum(board)){//最大值的格子不赋空
+				// console.log(largestOfFour(board));
+				break;
 			}
+			 randx=parseInt(Math.floor(Math.random()*4));
+			 randy=parseInt(Math.floor(Math.random()*4));
+
+			 // times ++;
+		}		
+
+
+		function maximum(board){ 
+			var max=board[0][0];
+			for (var i = 0; i < board.length; i++) {
+			    for (var j = 0; j< board[i].length; j++) {
+			        if (max<board[i][j]) {
+			            max=board[i][j];
+			 
+			        }      
+			    }
+			}
+			console.log(max);
+			return(max);	 
 		}
+
+		
+
+		board[randx][randy]=0;
+		setTimeout("updateBoardView()",200);
+
+		return true;
 	}
-
-	board[randx][randy]=0;
-	setTimeout("updateBoardView()",200);
-
-	return true;
-
 }

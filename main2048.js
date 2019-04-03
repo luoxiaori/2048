@@ -213,14 +213,13 @@ $(document).keydown(function(event){
 	}
 });
 
-var container=document.getElementById('grid-container');
-container.addEventListener('touchstart',function(event){//event.touches
+$('#grid-container').addEventListener('touchstart',function(event){//event.touches
 	event.preventDefault();
 	startx=event.touches[0].pageX;
  	starty=event.touches[0].pageY;
 });
 
-container.addEventListener('touchend',function(event){
+$('#grid-container').addEventListener('touchend',function(event){
 	event.preventDefault();
 	endx=event.changedTouches[0].pageX;
  	endy=event.changedTouches[0].pageY;

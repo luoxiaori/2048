@@ -112,7 +112,7 @@ function updateBoardView(){
 	//手机	
 	$('.number-cell').css('line-height',cellSideLength+'px');
 	$('.number-cell').css('font-size',0.6*cellSideLength+'px');
-
+	
 	for(var i=0;i<4;i++){
 		for(var j=0;j<4;j++){
 			if(board[i][j]>=1024){
@@ -213,15 +213,13 @@ $(document).keydown(function(event){
 	}
 });
 
-// var container=document.getElementById('grid-container');
-$('#grid-container').on('touchstart',function(event){//event.touches
-	event.preventDefault();
+
+document.addEventListener('touchstart',function(event){//event.touches
 	startx=event.touches[0].pageX;
  	starty=event.touches[0].pageY;
 });
 
-$('#grid-container').on('touchend',function(event){
-	event.preventDefault();
+document.addEventListener('touchend',function(event){
 	endx=event.changedTouches[0].pageX;
  	endy=event.changedTouches[0].pageY;
 

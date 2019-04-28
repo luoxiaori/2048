@@ -213,6 +213,9 @@ $(document).keydown(function(event){
 	}
 });
 
+document.addEventListener('touchmove',function(event){//event.touches
+	event.preventDefault();
+});
 
 document.addEventListener('touchstart',function(event){//event.touches
 	startx=event.touches[0].pageX;

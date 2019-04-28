@@ -213,7 +213,7 @@ $(document).keydown(function(event){
 	}
 });
 
-contain.addEventListener('touchmove',function(event){//event.touches
+document.addEventListener('touchmove',function(event){//event.touches
 	event.preventDefault();
 });
 

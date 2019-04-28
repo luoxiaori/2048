@@ -215,7 +215,6 @@ $(document).keydown(function(event){
 
 
 document.addEventListener('touchstart',function(event){//event.touches
-	event.preventDefault();
 	startx=event.touches[0].pageX;
  	starty=event.touches[0].pageY;
 });

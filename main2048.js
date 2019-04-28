@@ -277,7 +277,7 @@ function isgameover(){
 
 
 function gameover(){
-	alert('click "help!!!" to survive');
+	alert('click the title "2048" to survive');
 }
 
 

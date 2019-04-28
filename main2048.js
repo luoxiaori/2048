@@ -213,17 +213,16 @@ $(document).keydown(function(event){
 	}
 });
 
-var contain=document.getElementById('grid-container');
 contain.addEventListener('touchmove',function(event){//event.touches
 	event.preventDefault();
 });
 
-contain.addEventListener('touchstart',function(event){//event.touches
+document.addEventListener('touchstart',function(event){//event.touches
 	startx=event.touches[0].pageX;
  	starty=event.touches[0].pageY;
 });
 
-contain.addEventListener('touchend',function(event){
+document.addEventListener('touchend',function(event){
 	endx=event.changedTouches[0].pageX;
  	endy=event.changedTouches[0].pageY;
 
